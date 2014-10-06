@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140911085115) do
+ActiveRecord::Schema.define(version: 20141006142304) do
+
+  create_table "profiles", force: true do |t|
+    t.string   "name"
+    t.string   "profile_pic"
+    t.string   "twitter"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
 
   create_table "roles", force: true do |t|
     t.string   "name"
